@@ -86,7 +86,12 @@ trait GiveExperience
         }
 
         $this->experience->increment(column: 'experience_points', amount: $amount);
-
+        
+        if($this->level_id != $this->experience->level_id) {
+            $this->experience->update(attributes: [
+                'level_id' => $this->level_id,
+            ]);
+        }
         $this->dispatchEvent($amount, $type, $reason);
 
         return $this->experience;

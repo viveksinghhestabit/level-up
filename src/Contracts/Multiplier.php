@@ -6,5 +6,5 @@ interface Multiplier
 {
     public function qualifies(array $data): bool;
 
-    public function setMultiplier(): int;
+    public function setMultiplier(): float;
 }
