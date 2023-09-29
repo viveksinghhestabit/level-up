@@ -11,8 +11,8 @@ return [
      */
     'user' => [
         'foreign_key' => 'user_id',
-        'model' => App\Models\User::class,
-        'users_table' => 'users',
+        'model' => App\User::class,
+        'users_table' => 'wp_users',
     ],
 
     /*
