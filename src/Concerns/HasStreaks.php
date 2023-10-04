@@ -75,7 +75,7 @@ trait HasStreaks
     {
         $streak = $activity->streaks()
             ->updateOrCreate([
-                'user_id' => $this->{config(key: 'level-up.users.users_primary_key')},
+                'user_id' => $this->{config(key: 'level-up.user.users_primary_key')},
                 'activity_id' => $activity->id,
                 'activity_at' => now(),
             ]);
@@ -113,7 +113,7 @@ trait HasStreaks
         $latestStreak = $this->getStreakLastActivity($activity);
 
         StreakHistory::create([
-            'user_id' => $this->{config(key: 'level-up.users.users_primary_key')},
+            'user_id' => $this->{config(key: 'level-up.user.users_primary_key')},
             'activity_id' => $activity->id,
             'count' => $latestStreak->count,
             'started_at' => $latestStreak->activity_at->subDays($latestStreak->count - 1),
