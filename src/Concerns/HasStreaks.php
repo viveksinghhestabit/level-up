@@ -75,7 +75,7 @@ trait HasStreaks
     {
         $streak = $activity->streaks()
             ->updateOrCreate([
-                'user_id' => $this->id,
+                'user_id' => $this->{config(key: 'level-up.users.users_primary_key')},
                 'activity_id' => $activity->id,
                 'activity_at' => now(),
             ]);

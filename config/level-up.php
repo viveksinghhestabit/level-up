@@ -13,6 +13,7 @@ return [
         'foreign_key' => 'user_id',
         'model' => App\User::class,
         'users_table' => 'wp_users',
+        'users_primary_key' => 'ID',
     ],
 
     /*
