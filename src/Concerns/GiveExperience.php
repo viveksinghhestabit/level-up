@@ -215,6 +215,12 @@ trait GiveExperience
         $this->fill(attributes: ['level_id' => $to])
             ->save();
 
+        if($to != $this->experience->level_id) {
+            $this->experience->update(attributes: [
+                'level_id' => $this->level_id,
+            ]);
+        }
+
         $this->experience->status()->associate(model: $to);
         $this->save();
 
